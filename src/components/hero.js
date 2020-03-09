@@ -30,7 +30,7 @@ const Hero = ({ items }) => {
         <div
           className="slider-item"
           style={{
-            backgroundImage: `url(${data.placeholderImage1.childImageSharp.fixed.src})`,
+            backgroundImage: `url(${placeholderImage1.childImageSharp.fixed.src})`,
           }}
         >
           <div className="overlay" />
@@ -59,7 +59,7 @@ const Hero = ({ items }) => {
         <div
           className="slider-item"
           style={{
-            backgroundImage: `url(${data.placeholderImage2.childImageSharp.fixed.src})`,
+            backgroundImage: `url(${placeholderImage2.childImageSharp.fixed.src})`,
           }}
         >
           <div className="overlay" />

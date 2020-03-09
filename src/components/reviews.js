@@ -57,7 +57,7 @@ export default function Reviews({ reviews }) {
         <div className="row">
           <div className="col-md-12">
             <div className="carousel-testimony owl-carousel">
-              {data.allReview.edges.map(({ node }) => (
+              {reviews.edges.map(({ node }) => (
                 <div className="owl-item active">
                   <div className="item">
                     <ReviewItem
