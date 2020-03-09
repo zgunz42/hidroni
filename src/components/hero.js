@@ -1,29 +1,10 @@
 import React, { useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { isFunction } from "lodash"
 import { tns } from "ventura-slider"
 import "ventura-slider/dist/tiny-slider.css"
 
-const Hero = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage1: file(relativePath: { eq: "bg_1.jpg" }) {
-        childImageSharp {
-          fixed(width: 2000, height: 1335) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-      placeholderImage2: file(relativePath: { eq: "bg_2.jpg" }) {
-        childImageSharp {
-          fixed(width: 2000, height: 1335) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
-
+const Hero = ({ items }) => {
+  const [placeholderImage1, placeholderImage2] = items
   useEffect(() => {
     const slider = tns({
       container: ".home-slider",

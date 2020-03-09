@@ -7,28 +7,7 @@ import "ventura-slider/dist/tiny-slider.css"
 import FadeInUp from "./fade-in-up"
 import ReviewItem from "./review-item"
 
-export default function Reviews() {
-  const data = useStaticQuery(graphql`
-    query {
-      allReview {
-        edges {
-          node {
-            name
-            message
-            referal
-            image {
-              childImageSharp {
-                fixed(width: 479, height: 479) {
-                  src
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
+export default function Reviews({ reviews }) {
   useEffect(() => {
     const slider = tns({
       container: ".carousel-testimony",

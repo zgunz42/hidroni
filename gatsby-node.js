@@ -149,7 +149,6 @@ exports.onCreateNode = ({
       parent.internal.type === "File" &&
       parent.sourceInstanceName === "review"
     ) {
-      console.log("create Review node", node.id)
       const fieldData = {
         name: node.name,
         image: node.image,

@@ -6,6 +6,7 @@
   "version": "0.1.0",
   "author": "Adi Gunawan <adi_gunawan@live.com>",
   "dependencies": {
+    "@loadable/component": "^5.12.0",
     "@mdx-js/mdx": "1.5.7",
     "@mdx-js/react": "1.5.7",
     "classnames": "2.2.6",
@@ -58,7 +59,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-		"autofix": "eslint --fix src/",
+    "autofix": "eslint --fix src/",
     "cm": "git-cz",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
