@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Hidroni`,
+    description: `Situs Hidroponik Lengkap.`,
+    author: `@adi_gun_gun`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -10,13 +10,6 @@ module.exports = {
       resolve: `gatsby-transformer-yaml`,
       options: {
         typeName: `Yaml`, // a fixed string
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -31,8 +24,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content/product`,
-        name: `product`,
+        path: `${__dirname}/content/products`,
+        name: `products`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
@@ -40,16 +33,16 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content/review`,
-        name: `review`,
+        path: `${__dirname}/content/reviews`,
+        name: `reviews`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content/category`,
-        name: `category`,
+        path: `${__dirname}/content/categories`,
+        name: `categories`,
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
@@ -60,13 +53,7 @@ module.exports = {
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-relative-images`,
-            options: {
-              name: `uploads`,
-              fmFields: ["image"],
-            },
-          },
+          `gatsby-remark-relative-images`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -88,13 +75,24 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: "",
+        short_name: "",
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icons: [
+          {
+            src: "/android-chrome-192x192.png",
+            sizes: "192x192",
+            type: "image/png",
+          },
+          {
+            src: "/android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+          },
+        ],
+        theme_color: "#82ae46",
+        background_color: "#82ae46",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

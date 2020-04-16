@@ -46,6 +46,7 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-react": "^7.19.0",
     "gatsby-plugin-eslint": "^2.0.8",
+    "patch-package": "^6.2.2",
     "prettier": "^1.19.1",
     "validate-commit": "^3.4.0"
   },
@@ -60,6 +61,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "autofix": "eslint --fix src/",
+    "postinstall": "patch-package",
     "cm": "git-cz",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },

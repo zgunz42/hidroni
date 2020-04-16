@@ -17,21 +17,21 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Category implements Node {
       title: String!
       identity: String!
-      image: File
+      image: File @fileByRelativePath
       slug: String!
       description: String
       products: [Product] @link(by: "category", from: "sku")
     }
     type Review implements Node {
       name: String!
-      image: File
+      image: File @fileByRelativePath
       product: Product @link(by: "sku")
       message: String!
       referal: String
     }
     type Variant {
       name: String!
-      image: File
+      image: File @fileByRelativePath
       weight: Float
       price: Float
     }
@@ -40,7 +40,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       draft: Boolean
       sku: String!
       description: String
-      image: File
+      image: File @fileByRelativePath
       discount: Float
       rating: Float
       sold: Int
@@ -140,14 +140,15 @@ exports.onCreateNode = ({
   createNodeId,
 }) => {
   const { createNodeField, createNode } = actions
-  fmImagesToRelative(node) // convert image paths for gatsby images
+  const applyer = fmImagesToRelative(node) // convert image paths for gatsby images
 
   if (node.internal.type === `Yaml`) {
     const parent = getNode(node.parent)
-    console.log("create Review node", node.id)
+    applyer(node, parent.absolutePath)
+    console.log(node.image)
     if (
       parent.internal.type === "File" &&
-      parent.sourceInstanceName === "review"
+      parent.sourceInstanceName === "reviews"
     ) {
       const fieldData = {
         name: node.name,
@@ -180,6 +181,8 @@ exports.onCreateNode = ({
     const path = parent.sourceInstanceName
     const slug = node.frontmatter.slug || slugify(node.frontmatter.title, "-")
 
+    applyer(node.frontmatter, node.fileAbsolutePath) // convert image paths for gatsby images
+
     createNodeField({
       name: `slug`,
       node,
@@ -188,7 +191,7 @@ exports.onCreateNode = ({
 
     if (
       parent.internal.type === "File" &&
-      parent.sourceInstanceName === "product"
+      parent.sourceInstanceName === "products"
     ) {
       const fieldData = {
         ...node.frontmatter,
@@ -210,7 +213,7 @@ exports.onCreateNode = ({
     }
     if (
       parent.internal.type === "File" &&
-      parent.sourceInstanceName === "category"
+      parent.sourceInstanceName === "categories"
     ) {
       const fieldData = {
         ...node.frontmatter,

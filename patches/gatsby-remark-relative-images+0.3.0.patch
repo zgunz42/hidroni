@@ -1,0 +1,78 @@
+diff --git a/node_modules/gatsby-remark-relative-images/index.js b/node_modules/gatsby-remark-relative-images/index.js
+index 2326f5e..4f26817 100644
+--- a/node_modules/gatsby-remark-relative-images/index.js
++++ b/node_modules/gatsby-remark-relative-images/index.js
+@@ -68,10 +68,11 @@ module.exports = function (_ref, pluginOptions) {
+                 imagePath = slash(path.join(parentDirectory, node.url)); // See if there is a matching file path from gatsby-source-filesystem
+ 
+                 imageNode = _.find(files, function (file) {
+-                  return slash(path.normalize(file.absolutePath)) === imagePath;
++                  return slash(path.normalize(file.absolutePath)).endsWith(node.url);
+                 }); // Return if we didn't find a match
+ 
+                 if (imageNode) {
++                  imagePath = slash(path.normalize(imageNode.absolutePath));
+                   _context.next = 7;
+                   break;
+                 }
+@@ -223,30 +224,36 @@ var fileNodes = [];
+ module.exports.fmImagesToRelative = function (node) {
+   // Save file references
+   fileNodes.push(node); // Only process markdown files
+-
+-  if (node.internal.type === "MarkdownRemark" || node.internal.type === "Mdx") {
+-    // Convert paths in frontmatter to relative
+-    var makeRelative = function makeRelative(value) {
+-      if (_.isString(value) && path.isAbsolute(value)) {
+-        var imagePath;
+-
+-        var foundImageNode = _.find(fileNodes, function (file) {
+-          if (!file.dir) return;
+-          imagePath = path.join(file.dir, path.basename(value));
+-          return slash(path.normalize(file.absolutePath)) === slash(imagePath);
+-        });
+-
+-        if (foundImageNode) {
+-          return slash(path.relative(path.join(node.fileAbsolutePath, ".."), imagePath));
+-        }
++  // Convert paths in frontmatter to relative
++  var makeRelative = function makeRelative(value, fileAbsolutePath) {
++    if (_.isString(value) && path.isAbsolute(value)) {
++      var imagePath;
++
++      var foundImageNode = _.find(fileNodes, function (file) {
++        if (!file.dir) return;
++        imagePath = path.join(file.dir, path.basename(value));
++        return slash(path.normalize(file.absolutePath)) === slash(imagePath);
++      });
++
++      if (foundImageNode) {
++        return slash(path.relative(path.join(fileAbsolutePath, ".."), imagePath));
+       }
+-
+-      return value;
+-    }; // Deeply iterate through frontmatter data for absolute paths
+-
+-
+-    deepMap(node.frontmatter, makeRelative, {
+-      inPlace: true
+-    });
++    }
++
++    return value;
++  }; // Deeply iterate through frontmatter data for absolute paths
++
++  return (path, fileAbsolutePath) => {
++    var curry = _.curryRight(makeRelative)
++
++    if(path) {
++      deepMap(_.get(node, path, {}), curry(fileAbsolutePath), {
++        inPlace: true
++      });
++    } else {
++      deepMap(node, curry(fileAbsolutePath), {
++        inPlace: true
++      });
++    }
+   }
+ };

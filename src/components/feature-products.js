@@ -7,6 +7,7 @@ const FeatureProduct = () => {
     query {
       products: allProduct(limit: 8, sort: { fields: sold, order: DESC }) {
         nodes {
+          id
           title
           discount
           sku
@@ -52,6 +53,7 @@ const FeatureProduct = () => {
           <div className="col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated">
             {data.products.nodes.map(node => (
               <ProductCard
+                key={node.id}
                 title={node.title}
                 price={node.variants[0].price}
                 discount={node.discount}

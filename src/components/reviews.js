@@ -58,7 +58,7 @@ export default function Reviews({ reviews }) {
           <div className="col-md-12">
             <div className="carousel-testimony owl-carousel">
               {reviews.edges.map(({ node }) => (
-                <div className="owl-item active">
+                <div key={node.id} className="owl-item active">
                   <div className="item">
                     <ReviewItem
                       name={node.name}
