@@ -145,7 +145,7 @@ exports.onCreateNode = ({
   if (node.internal.type === `Yaml`) {
     const parent = getNode(node.parent)
     applyer(node, parent.absolutePath)
-    console.log(node.image)
+
     if (
       parent.internal.type === "File" &&
       parent.sourceInstanceName === "reviews"
