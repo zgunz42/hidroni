@@ -14,7 +14,7 @@ const Categories = () => {
         }
       }
       top: allCategory(
-        sort: { order: DESC, fields: products___sold }
+        sort: { order: DESC, fields: products___stats___totalSales }
         limit: 4
       ) {
         edges {

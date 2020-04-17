@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "gatsby-image"
+import _ from "lodash"
 import { Link } from "gatsby"
 
 const ProductCard = ({
@@ -34,7 +35,7 @@ const ProductCard = ({
                   </span>
                 </>
               ) : (
-                <span classs="price-sale">Rp. {price}</span>
+                <span classs="price-sale">{price}</span>
               )}
             </p>
           </div>

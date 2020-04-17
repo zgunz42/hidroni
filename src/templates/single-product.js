@@ -10,8 +10,15 @@ export default function SingleProduct({ data: { product } }) {
     <Layout>
       <HeroItem />
       <ProductDetail
-        title={product.title}
-        image={{ fixed: product.image.childImageSharp.fixed }}
+        name={product.name}
+        price={product.price}
+        weight={product.weight}
+        image={{ fixed: product.images[0].childImageSharp.fixed }}
+        ratingCount={product.stats.rating_count}
+        description={product.description}
+        averageRating={product.stats.average_rating}
+        totalSales={product.stats.total_sales}
+        variants={product.variants}
       />
     </Layout>
   )
@@ -21,8 +28,24 @@ export const pageQuery = graphql`
   query ProductQuery($id: String) {
     product(id: { eq: $id }) {
       id
-      title
-      image {
+      name
+      description
+      weight
+      stats {
+        average_rating
+        total_sales
+        rating_count
+      }
+      price
+      variants {
+        weight
+        sku
+        name
+        group
+        stock
+        price
+      }
+      images {
         childImageSharp {
           fixed(width: 510, height: 408) {
             ...GatsbyImageSharpFixed

@@ -16,7 +16,7 @@ export default function Footer() {
         <div className="row mb-5">
           <div className="col-md">
             <div className="ftco-footer-widget mb-4">
-              <h2 className="ftco-heading-2">Vegefoods</h2>
+              <h2 className="ftco-heading-2">Hidroni</h2>
               <p>
                 Far far away, behind the word mountains, far from the countries
                 Vokalia and Consonantia.
@@ -142,8 +142,8 @@ export default function Footer() {
               {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
               Copyright © All rights reserved | This template is made with{" "}
               <i className="icon-heart color-danger" aria-hidden="true" /> by{" "}
-              <a href="https://colorlib.com" target="_blank">
-                Colorlib
+              <a href="https://adibite.xyz" target="_blank">
+                Adibite
               </a>
               {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
             </p>

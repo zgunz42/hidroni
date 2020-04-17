@@ -1,0 +1,34 @@
+{
+  "authorSocialLinks": [
+    {
+      "name": "github",
+      "url": "https://github.com/zgunz42"
+    },
+    {
+      "name": "twitter",
+      "url": "https://twitter.com/adi_gungun"
+    },
+    {
+      "name": "facebook",
+      "url": "https://facebook.com/adhi.spirit"
+    }
+  ],
+  "authorTwitterAccount": "adi_gun_gun",
+  "manifestBackgroundColor": "#fff",
+  "siteUrl": "https://adibite.xzy",
+  "manifestThemeColor": "#fff",
+  "infoTitle": "Hidroni",
+  "siteTitle": "Hidroni - Belanja Sayuran Segar Online",
+  "manifestDisplay": "standalone",
+  "siteImage": "preview.jpg",
+  "shortSiteTitle": "Hidroni",
+  "siteDescription": "Blog made by adi gunawan",
+  "authorName": "Hidroni",
+  "pathPrefix": "",
+  "manifestShortName": "Adibite",
+  "manifestName": "Adibite - a blog starter by Hidroni",
+  "manifestStartUrl": "/",
+  "infoTitleNote": "online shop",
+  "contactEmail": "adi_gunawan@live.com",
+  "siteLanguage": "id"
+}

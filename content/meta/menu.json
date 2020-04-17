@@ -1,0 +1,39 @@
+{
+  "menus": [
+    {
+      "position": "top_menu",
+      "menu": [
+        {
+          "weight": 1,
+          "menuTitle": "Products",
+          "slug": "/products"
+        }
+      ]
+    },
+    {
+      "position": "footer_menu",
+      "menu": [
+        {
+          "weight": 0,
+          "menuTitle": "About",
+          "slug": "/about"
+        },
+        {
+          "weight": 1,
+          "menuTitle": "Disclaimer",
+          "slug": "/disclaimer"
+        },
+        {
+          "weight": 2,
+          "menuTitle": "Privacy Policy",
+          "slug": "/privacy-policy"
+        },
+        {
+          "weight": 3,
+          "menuTitle": "Terms-Condition",
+          "slug": "/terms-condition"
+        }
+      ]
+    }
+  ]
+}

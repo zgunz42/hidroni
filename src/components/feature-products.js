@@ -1,32 +1,31 @@
 import React from "react"
-import { useStaticQuery, graphql, navigate } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import ProductCard from "./product-card"
 
 const FeatureProduct = () => {
   const data = useStaticQuery(graphql`
     query {
-      products: allProduct(limit: 8, sort: { fields: sold, order: DESC }) {
+      products: allProduct(
+        limit: 8
+        sort: { fields: stats___totalSales, order: DESC }
+      ) {
         nodes {
           id
-          title
-          discount
+          name
           sku
-          image {
+          price
+          images {
             childImageSharp {
               fluid(maxWidth: 508) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
-          variants {
-            name
-            price
-            weight
-          }
           parent {
             ... on Mdx {
               fields {
                 slug
+                money
               }
             }
           }
@@ -51,15 +50,14 @@ const FeatureProduct = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-lg-3 ftco-animate fadeInUp ftco-animated">
-            {data.products.nodes.map(node => (
+            {data.products.nodes.map(product => (
               <ProductCard
-                key={node.id}
-                title={node.title}
-                price={node.variants[0].price}
-                discount={node.discount}
-                url={node.parent.fields.slug}
+                key={product.id}
+                title={product.name}
+                price={product.parent.fields.money}
+                url={product.parent.fields.slug}
                 image={{
-                  fluid: node.image.childImageSharp.fluid,
+                  fluid: product.images[0].childImageSharp.fluid,
                 }}
               />
             ))}

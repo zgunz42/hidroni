@@ -24,7 +24,7 @@ const Navbar = () => {
     >
       <div className="container">
         <Link className="navbar-brand" to="/">
-          Vegefoods
+          Hidroni
         </Link>
         <button
           onClick={e => toggleHamburger()}
