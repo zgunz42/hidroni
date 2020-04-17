@@ -1,5 +1,5 @@
 diff --git a/node_modules/gatsby-remark-relative-images/index.js b/node_modules/gatsby-remark-relative-images/index.js
-index 2326f5e..5cafc4e 100644
+index 2326f5e..b4edea1 100644
 --- a/node_modules/gatsby-remark-relative-images/index.js
 +++ b/node_modules/gatsby-remark-relative-images/index.js
 @@ -68,10 +68,11 @@ module.exports = function (_ref, pluginOptions) {
@@ -30,7 +30,7 @@ index 2326f5e..5cafc4e 100644
        if (_.isString(value) && path.isAbsolute(value)) {
          var imagePath;
  
-@@ -237,15 +238,39 @@ module.exports.fmImagesToRelative = function (node) {
+@@ -237,15 +238,37 @@ module.exports.fmImagesToRelative = function (node) {
          });
  
          if (foundImageNode) {
@@ -42,15 +42,13 @@ index 2326f5e..5cafc4e 100644
        return value;
 -    }; // Deeply iterate through frontmatter data for absolute paths
 +    }
-+
+ 
 +    function makeRelative(value) {
 +      if(_.isArray(value)) {
 +        function mapper(value) {
 +          if (_.isString(value)) {
-+            console.log('convert')
 +            getFullPath(value)
 +          }
-+          console.log('inner')
 +          return makeRelative(value)
 +        }
 +        return _.map(value, mapper)
@@ -64,7 +62,7 @@ index 2326f5e..5cafc4e 100644
 +        }
 +        return _.mapValues(value, mapper)
 +      }
- 
++
 +      return getFullPath(value);
 +    }; // Deeply iterate through frontmatter data for absolute paths
  
