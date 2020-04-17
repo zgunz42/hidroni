@@ -50,9 +50,10 @@ export const query = graphql`
     allReview {
       edges {
         node {
+          id
           name
           message
-          referal
+          referral
           image {
             childImageSharp {
               fixed(width: 479, height: 479) {
@@ -65,5 +66,4 @@ export const query = graphql`
     }
   }
 `
-
 export default IndexPage

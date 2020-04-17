@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import { tns } from "ventura-slider"
 import { isFunction } from "lodash"
 import "ventura-slider/dist/tiny-slider.css"
@@ -64,7 +63,7 @@ export default function Reviews({ reviews }) {
                       name={node.name}
                       message={node.message}
                       image={node.image.childImageSharp.fixed.src}
-                      referal={node.referal}
+                      referral={node.referral}
                     />
                   </div>
                 </div>

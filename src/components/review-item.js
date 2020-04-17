@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function ReviewItem({ name, message, image, referal }) {
+export default function ReviewItem({ name, message, image, referral }) {
   return (
     <div className="testimony-wrap p-4 pb-5">
       <div
@@ -14,7 +14,7 @@ export default function ReviewItem({ name, message, image, referal }) {
       <div className="text text-center">
         <p className="mb-5 pl-4 line">{message}</p>
         <p className="name">{name}</p>
-        <span className="position">{referal}</span>
+        <span className="position">{referral}</span>
       </div>
     </div>
   )

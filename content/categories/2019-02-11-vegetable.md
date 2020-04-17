@@ -1,8 +1,0 @@
----
-title: Vegetable
-identity: vegetable
-image: /uploads/category-1.jpg
-slug: vegetable
-description: >
-  A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.
----
