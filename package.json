@@ -26,7 +26,7 @@
     "gatsby-transformer-sharp": "^2.3.13",
     "gatsby-transformer-yaml": "2.2.25",
     "husky": "^4.2.3",
-    "lint-staged": "^10.0.8",
+    "lint-staged": "10.5.4",
     "lodash": "4.17.15",
     "node-sass": "latest",
     "patch-package": "^6.2.2",
