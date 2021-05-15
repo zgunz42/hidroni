@@ -46,7 +46,7 @@
     "eslint-loader": "^3.0.3",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-react": "^7.19.0",
-    "gatsby-plugin-eslint": "^2.0.8",
+    "gatsby-plugin-eslint": "3.0.0",
     "prettier": "^1.19.1",
     "validate-commit": "^3.4.0"
   },
