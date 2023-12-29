@@ -9,7 +9,7 @@
     "@loadable/component": "^5.12.0",
     "@mdx-js/mdx": "1.5.7",
     "@mdx-js/react": "1.5.7",
-    "classnames": "2.2.6",
+    "classnames": "2.5.1",
     "framer-motion": "1.10.3",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
